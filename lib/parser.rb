@@ -59,6 +59,7 @@ class Parser
       end
 
       opts.on('-h', '--help', 'Print this help') do |h|
+        puts Parser.info
         puts opts
         exit(0)
       end
@@ -67,7 +68,10 @@ class Parser
     params
     
     rescue OptionParser::MissingArgument => e
-      puts 'There is a missing argument for this option'
+      puts "There is a missing argument for this option (#{e.message})"
+      exit(0)
+    rescue OptionParser::InvalidOption => e
+      puts "This option is invalid (#{e.message})" 
       exit(0)
   end
 
@@ -83,5 +87,18 @@ class Parser
                                        ]
                                      }
 CONF
+  end
+
+  def self.info
+<<-INFO    
+Welcome to this little programm. The purpose is to check, if you 
+'have been pwned' with one of your email addresses. You can also 
+get information about which websites have been breached (hacked).
+
+You can get more information on https://haveibeenpwned.com/
+
+This programm is using the API v3 https://haveibeenpwned.com/API/v3
+
+INFO
   end
 end

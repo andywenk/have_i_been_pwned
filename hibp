@@ -22,23 +22,21 @@ require_relative 'lib/configuration_reader'
 require_relative 'lib/api'
 require 'pp'
 
-puts "++++ Have I been pwned? ++++\n"
+puts "            ++++ Have I been pwned? ++++      \n\n"
 
-if ARGV[0].nil? 
-  raise MissingOptions.new
-  exit(0)
-else
-  params = Parser.execute
-end
+ARGV[0] = '-h' if ARGV[0].nil?
+params = Parser.execute
 
 api = Api.new(params)
 api.execute
 
-api.json_result.each do |result|
-  next if result[:Domain].empty?
-  url = "https://www.#{result[:Domain]}"
-  `pageres #{url} 1024x768 --filename='screenshots/<%= url %>' `
-end
+puts api.json_result
+
+# api.json_result.each do |result|
+#   next if result[:Domain].empty?
+#   url = "https://www.#{result[:Domain]}"
+#   `pageres #{url} 1024x768 --filename='screenshots/<%= url %>' `
+# end
 
 
 
