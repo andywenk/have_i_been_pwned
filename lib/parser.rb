@@ -24,7 +24,7 @@ Params = Struct.new(
   :retrieve_breaches_for_emails_from_configuration,
   :retrieve_breaches_from_configuration,
   :retrieve_breaches_for_single_email_address, 
-  :json_from_configuration_file 
+  :json_from_configuration_file
   )
 
 class Parser
@@ -84,7 +84,8 @@ class Parser
                                        "emails": [
                                          "harry@belafonte.com",
                                          "stuart@hamilton.com"
-                                       ]
+                                       ],
+                                       "api_key": "YOUR_API_KEY"
                                      }
 CONF
   end

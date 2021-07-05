@@ -26,11 +26,9 @@ puts "            ++++ Have I been pwned? ++++      \n\n"
 
 ARGV[0] = '-h' if ARGV[0].nil?
 params = Parser.execute
-
 api = Api.new(params)
 api.execute
-
-puts api.json_result
+pp api.json_result
 
 # api.json_result.each do |result|
 #   next if result[:Domain].empty?

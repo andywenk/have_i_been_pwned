@@ -38,3 +38,11 @@ class InvalidConfigurationFileSyntax < StandardError
     exit(0)
   end
 end
+
+class ConfigurationFileMissing < StandardError
+  def initialize
+    super
+    puts "You need to give the path to the configuration file with the option -c"
+    exit(0)
+  end
+end
