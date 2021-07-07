@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 # Copyright [2021] [sum.cumo Sapiens GmbH]
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,23 +14,12 @@
 
 # frozen_string_literal: true
 
-require_relative 'lib/hibp'
-require 'pp'
+require_relative 'hibp/version'
+require_relative 'hibp/parser'
+require_relative 'hibp/exceptions'
+require_relative 'hibp/configuration_reader'
+require_relative 'hibp/api'
 
-puts "            ++++ Have I been pwned? ++++      \n\n"
-
-ARGV[0] = '-h' if ARGV[0].nil?
-params = Hibp::Parser.execute
-api = Hibp::Api.new(params)
-api.execute
-pp api.json_result
-
-# api.json_result.each do |result|
-#   next if result[:Domain].empty?
-#   url = "https://www.#{result[:Domain]}"
-#   `pageres #{url} 1024x768 --filename='screenshots/<%= url %>' `
-# end
-
-
-
-
+module Hibp
+  
+end
