@@ -26,7 +26,7 @@ module Hibp
       options = Hibp::Options.new
       
       OptionParser.new do |opts|
-        opts.program_name = 'hipb - Have I been pwned?'
+        opts.program_name = 'hipb'
         opts.version      = Hibp::VERSION
         opts.on_head('')
         opts.on_tail('')
